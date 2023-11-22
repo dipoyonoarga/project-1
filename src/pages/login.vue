@@ -19,7 +19,9 @@ const onLogin = () => {
     <h1>Login Page</h1>
     <div class="flex flex-col gap-2">
       <input type="text" v-model="username" class="border" />
-      <button @click="onLogin()" class="bg-blue">Login</button>
+      <button @click="onLogin()" class="bg-blue-500 text-white py-1 px-3">
+        Login
+      </button>
     </div>
   </div>
 </template>

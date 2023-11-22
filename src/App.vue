@@ -23,14 +23,22 @@ const onLogout = () => {
         <router-link to="/restricted">Restricted Page</router-link>
       </div>
       <!--Authenticated User-->
-      <div>
+      <div class="flex gap-2 items-center">
         <p v-if="auth.username">{{ auth.username }}</p>
         <div v-if="auth.username">
-          <button class="btn" to="/login" @click="onLogout()">Logout</button>
+          <button
+            class="bg-red-500 text-white py-1 px=3"
+            to="/login"
+            @click="onLogout()"
+          >
+            Logout
+          </button>
         </div>
 
         <div v-else>
-          <router-link class="btn" to="/login">Login</router-link>
+          <router-link class="bg-blue-500 text-white py-1 px-3" to="/login"
+            >Login</router-link
+          >
         </div>
       </div>
     </div>
