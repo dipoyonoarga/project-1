@@ -1,4 +1,5 @@
 <script setup lang="ts">
+//Testing
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 
