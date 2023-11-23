@@ -10,6 +10,10 @@ const onLogout = () => {
   auth.logout();
   router.push("/login");
 };
+
+const showAlert = () => {
+  alert("Anda harus login untuk mengakses halaman ini!"); // Menampilkan alert
+};
 </script>
 
 <template>
@@ -20,7 +24,10 @@ const onLogout = () => {
       <div class="flex gap-4">
         <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link>
-        <router-link to="/restricted">Restricted Page</router-link>
+        <router-link v-if="auth.username" to="/restricted"
+          >Restricted Page</router-link
+        >
+        <p v-else @click="showAlert">Restricted Page</p>
       </div>
       <!--Authenticated User-->
       <div class="flex gap-2 items-center">
