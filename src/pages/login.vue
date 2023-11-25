@@ -31,6 +31,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
+import axios from "axios";
 
 const auth = useAuthStore();
 const username = ref("");
@@ -42,7 +43,14 @@ const isFormValid = () => {
   return username.value.trim() !== "" && password.value.trim() !== "";
 };
 
-const onLogin = () => {
+const onLogin = async () => {
+  const response = await axios.post("http://localhost:3000/login", {
+    username: username.value,
+    password: password.value,
+  });
+
+  console.log(response);
+  /*
   if (isFormValid()) {
     auth.login(username.value); // You may adjust this part according to your authentication logic
     router.push("/");
@@ -50,5 +58,6 @@ const onLogin = () => {
     // Handle invalid login attempt, e.g., show an error message
     alert("Please enter username and password");
   }
+*/
 };
 </script>
